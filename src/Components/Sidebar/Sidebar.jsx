@@ -1,10 +1,12 @@
 import "./Sidebar.css";
+import { MdModeNight } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { FiHome, FiUser, FiTool, FiFolder, FiSettings } from "react-icons/fi";
 
 function Sidebar() {
   return (
     <div className="sidebar">
+      <MdModeNight className="dark-theme" />
       <div className="title">
         <h1>Profile Manager</h1>
       </div>

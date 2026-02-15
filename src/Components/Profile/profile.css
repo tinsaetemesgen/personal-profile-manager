@@ -1,0 +1,13 @@
+.container {
+  position: relative;
+  width: 150px;
+  height: auto;
+  border: 2px solid black;
+}
+.profile-icon {
+  border-radius: 0;
+}
+p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-left: 44px;
+}

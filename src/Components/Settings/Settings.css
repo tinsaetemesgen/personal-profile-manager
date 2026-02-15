@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  width: 150px;
+  border: 2px solid black;
+  border-radius: 20%;
+}
+
+/* NEW: center everything */
+.center-page {
+  height: 100vh; /* full screen height */
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center; /* vertical center */
+}
+
+.profile-icon {
+  font-size: 150px;
+  color: rgb(0, 0, 0);
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.plus-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 35px;
+  color: blue;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.plus-icon:hover {
+  transform: scale(1.1);
+}
