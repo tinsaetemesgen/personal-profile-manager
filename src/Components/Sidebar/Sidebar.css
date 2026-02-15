@@ -5,9 +5,15 @@
 }
 
 .icon {
+<<<<<<< HEAD
   width: 2rem;
   height: 2rem;
   color: #f1f1f1;
+=======
+    width: 2rem;
+    height: 2rem;
+    color: #f1f1ff;
+>>>>>>> 097c03b (Updated sidebar styling)
 }
 
 .sidebar {
