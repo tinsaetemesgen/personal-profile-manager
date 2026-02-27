@@ -1,6 +1,6 @@
 import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
-import { FiHome, FiUser, FiTool, FiFolder, FiSettings } from "react-icons/fi";
+import { FiHome, FiUser, FiTool, FiFolder, FiSettings, FiLogOut } from "react-icons/fi";
 
 function Sidebar() {
   return (
@@ -12,40 +12,37 @@ function Sidebar() {
 
       <ul>
         <li>
-          <NavLink to="/">
+          <NavLink to="/Dashboard">
             <FiHome className="icon" />
             Dashboard
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/profile">
+          <NavLink to="/Profile">
             <FiUser className="icon" />
             Profile
-          </NavLink>
+          </NavLink> 
         </li>
 
         <li>
-          <NavLink to="/skills">
+          <NavLink to="/Experiance">
             <FiTool className="icon" />
-            Skills
+            Experiance
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/projects">
-            <FiFolder className="icon" />
-            Projects
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/settings">
+          <NavLink to="/Settings">
             <FiSettings className="icon" />
             Settings
           </NavLink>
         </li>
       </ul>
+
+      <button className="logout-btn">
+        <FiLogOut className="icon" />
+        Logout</button>
     </div>
   );
 }

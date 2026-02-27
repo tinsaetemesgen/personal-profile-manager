@@ -1,0 +1,6 @@
+.card {
+    background-color: aliceblue;
+    width: 12px;
+    height: 20px;
+    display: flex;
+}
