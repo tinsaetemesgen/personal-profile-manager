@@ -12,7 +12,7 @@ function Sidebar() {
 
       <ul>
         <li>
-          <NavLink to="/Dashboard">
+          <NavLink to="/">
             <FiHome className="icon" />
             Dashboard
           </NavLink>

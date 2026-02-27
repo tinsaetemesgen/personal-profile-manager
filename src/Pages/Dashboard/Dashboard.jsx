@@ -1,11 +1,17 @@
 import './Dashboard.css'
+import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
   return (
     <>
-    <main className='dashboard-page'>
-      <h1>Dash</h1>
-    </main>
+      
+      <div className="dashboard-page">
+        <h2>Dashboard Page</h2>
+        <Link to="/form">Add a new profile</Link>
+      </div>
+      
     </>
-  );
+
+
+  )
 }
