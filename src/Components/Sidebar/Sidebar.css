@@ -4,6 +4,24 @@
   box-sizing: border-box;
 }
 
+.sidebar {
+  width: 18rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    to bottom,
+    hsl(260, 82%, 24%),
+    hsl(238, 42%, 35%)
+  );
+}
+
+.page-content {
+  flex: 1;
+  background: #f5f7fa;
+}
+
+
 .icon {
     width: 2rem;
     height: 2rem;
@@ -14,18 +32,6 @@
     color: #f1f1ff;
 }
 
-.sidebar {
-  width: 18rem;
-  height: 100dvh;
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(
-    to bottom,
-    hsl(260, 82%, 24%),
-    hsl(238, 42%, 35%)
-  );
-}
 
 .title {
   display: flex;
@@ -93,7 +99,6 @@
 
 .logout-btn {
   width: 100%;
-  margin-top: auto;
   font-size: 1.4rem;
   display: flex;
   align-items: center;

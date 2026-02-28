@@ -1,0 +1,117 @@
+.form-section {
+  width: 100%;
+  max-width: 100%;
+}
+
+.form {
+  background: lightblue;
+  padding: 40px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.form h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.personal,
+.contact,
+.summary,
+.education,
+.experience,
+.skills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 28px;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+  display: block;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08);
+}
+
+textarea {
+  grid-column: span 2;
+  resize: vertical;
+  min-height: 100px;
+}
+
+input[type="file"] {
+  padding: 6px 0;
+  border: none;
+}
+
+.image-preview {
+  grid-column: span 2;
+  margin-top: 10px;
+}
+
+.image-preview img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e5e7eb;
+}
+
+.submit-btn {
+  align-self: flex-start;
+  padding: 11px 22px;
+  border-radius: 8px;
+  border: none;
+  background: #4f46e5;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.submit-btn:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .personal,
+  .contact,
+  .summary,
+  .education,
+  .experience,
+  .skills {
+    grid-template-columns: 1fr;
+  }
+
+  textarea {
+    grid-column: span 1;
+  }
+}
