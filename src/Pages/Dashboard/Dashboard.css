@@ -22,6 +22,7 @@
 
 .dashboard-cards {
   display: flex;
+  margin-left: 2rem;
   gap: 25px;
   flex-wrap: nowrap;
 }

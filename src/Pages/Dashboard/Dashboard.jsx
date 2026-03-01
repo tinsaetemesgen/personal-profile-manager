@@ -13,15 +13,19 @@ export default function Dashboard() {
 
       <div className="dashboard-cards">
         <div className="dashboard-card">
-          <FiUser className="card-icon" />
-          <h3>Total Profiles</h3>
-          <p>0 Profiles Created</p>
+          <Link to ="/profile" className="card-link">
+            <FiUser className="card-icon" />
+            <h3>Total Profiles</h3>
+            <p>0 Profiles Created</p>
+          </Link>
         </div>
 
         <div className="dashboard-card">
+         <Link to="/settings" className="card-link">
           <FiSettings className="card-icon" />
           <h3>Settings</h3>
           <p>Manage Preferences</p>
+        </Link>
         </div>
         <Link to="/form" className="add-profile-btn">
           <FiPlus />

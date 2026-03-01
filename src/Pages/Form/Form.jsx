@@ -6,7 +6,7 @@ import { FiHome, FiUser, FiTool, FiFolder, FiSettings, FiLogOut, FiArrowLeftCirc
 
 export default function Form() {
     return (
-        <>
+        <div className="form-container">
 
             <h1>Profile Manager</h1>
 
@@ -69,8 +69,6 @@ export default function Form() {
 
 
                     <div className="summary">
-
-
                     <h2>Professional Summary</h2>
 
                     <label htmlFor="title">Professional Title:</label>
@@ -178,6 +176,6 @@ export default function Form() {
                 </form>
             </section>
             
-        </>
+        </div>
     )
 }
