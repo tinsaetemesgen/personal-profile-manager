@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
-import Form from '../Form/Form';
-import './Profile.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { FiArrowLeft } from 'react-icons/fi'
+import Form from '../Form/Form'
+import './Profile.css'
 
 function Profile() {
   return (
@@ -22,7 +22,7 @@ function Profile() {
         <Form />
       </div>
     </div>
-  );
+  )
 }
 
-export default Profile;
+export default Profile
