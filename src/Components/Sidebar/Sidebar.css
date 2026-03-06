@@ -1,11 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .sidebar {
   width: 18rem;
+  height: 100vh;
+  position: fixed;
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -15,12 +11,6 @@
     hsl(238, 42%, 35%)
   );
 }
-
-.page-content {
-  flex: 1;
-  background: #f5f7fa;
-}
-
 
 .icon {
     width: 2rem;
@@ -102,6 +92,7 @@
   font-size: 1.4rem;
   display: flex;
   align-items: center;
+  margin-top: 28rem;
   color: #e4e4e4;
   background-color: hsl(0, 91%, 45%);
   padding: 0.6rem 0.8rem;

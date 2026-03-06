@@ -1,0 +1,9 @@
+.settings-page {
+    display: flex;
+    width: 100%;
+    margin-left:18rem;
+    height: 100vh;
+    background: linear-gradient(135deg, #dfe6f7, #d6dffa);
+    flex-direction: column;
+    gap: 2.4rem;
+}

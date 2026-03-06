@@ -1,12 +1,13 @@
 import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
 import { FiHome, FiUser, FiTool, FiFolder, FiSettings, FiLogOut } from "react-icons/fi";
+import { Link } from "react-router-dom"
 
 function Sidebar() {
   return (
     <div className="sidebar">
       <div className="title">
-        <h1>Profile Manager</h1>
+        <Link to='/' ><h1>Profile Manager</h1></Link>
       </div>
       <hr />
 

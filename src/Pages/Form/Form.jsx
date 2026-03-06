@@ -8,23 +8,26 @@ export default function Form() {
     return (
         <div className="form-container">
 
-            <h1>Profile Manager</h1>
-
             <div className="link">
             <Link to="/" className="back-link">
                 <FiArrowLeft /> Back to Dashboard
             </Link>
             </div>
 
+            
+
+            
+
             <section className="form-section">
+                    <h1>Fill out the following form</h1>
+                
                 <form className="form">
 
                     <div className="personal">
                     <h2>Personal Information</h2>
 
-                    <label htmlFor="profileImage">Profile Picture:</label>
+                    <label htmlFor="profileImage">Profile Picture (PNG, JPEG, JPG):</label>
                     <input type="file" id="profileImage" name="profileImage" accept="image/png, image/jpeg, image/jpg"/>
-
 
                     <label htmlFor="firstName">First Name:</label>
                     <input type="text" id="firstName" name="firstName" required />
@@ -65,6 +68,9 @@ export default function Form() {
 
                     <label htmlFor="linkedin">LinkedIn URL:</label>
                     <input type="url" id="linkedin" name="linkedin" />
+
+                    <label htmlFor="linkedin">Portfolio Link:</label>
+                    <input type="url" id="portfolio" name="portfolio" />
                     </div>
 
 

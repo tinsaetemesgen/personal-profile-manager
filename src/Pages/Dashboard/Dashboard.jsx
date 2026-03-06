@@ -1,6 +1,6 @@
 import './Dashboard.css'
 import { Link } from 'react-router-dom'
-import { FiPlus, FiUser, FiFolder, FiSettings } from "react-icons/fi"
+import { FiPlus, FiUser, FiFolder, FiSettings, FiUsers } from "react-icons/fi"
 
 export default function Dashboard() {
   return (
@@ -16,7 +16,7 @@ export default function Dashboard() {
           <Link to ="/profile" className="card-link">
             <FiUser className="card-icon" />
             <h3>Total Profiles</h3>
-            <p>0 Profiles Created</p>
+            <p><span id='counter'>0</span> Profiles Created</p>
           </Link>
         </div>
 
@@ -27,10 +27,15 @@ export default function Dashboard() {
           <p>Manage Preferences</p>
         </Link>
         </div>
-        <Link to="/form" className="add-profile-btn">
-          <FiPlus />
-          Add New Profile
+
+        <div className="dashboard-card">
+         <Link to="/form" className="add-profile-btn card-link">
+          <FiPlus className="card-icon" />
+          <h3>Create Profile</h3>
+          <p>Add a new profile to your portfolio</p>
         </Link>
+        </div>
+        
       </div>
 
       
