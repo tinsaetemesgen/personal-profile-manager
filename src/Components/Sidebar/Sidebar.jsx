@@ -1,8 +1,15 @@
 import "./Sidebar.css";
-import { NavLink } from "react-router-dom";
-import { FiHome, FiUser, FiTool, FiFolder, FiSettings } from "react-icons/fi";
+import { NavLink, useNavigate } from "react-router-dom";
+import { FiHome, FiUser, FiTool, FiFolder, FiSettings, FiLogOut } from "react-icons/fi";
 
 function Sidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+  
+    navigate('/');
+  };
+
   return (
     <div className="sidebar">
       <div className="title">
@@ -44,6 +51,14 @@ function Sidebar() {
             <FiSettings className="icon" />
             Settings
           </NavLink>
+        </li>
+
+       
+        <li className="logout-item">
+          <button onClick={handleLogout} className="logout-btn">
+            <FiLogOut className="icon" />
+            Logout
+          </button>
         </li>
       </ul>
     </div>

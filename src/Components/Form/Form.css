@@ -1,0 +1,128 @@
+.form-section {
+    width: 100%;
+    max-width: 100%;
+}
+
+.form {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid #e0e7ff;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+}
+
+.form h2 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid #667eea;
+    padding-left: 1rem;
+    background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+    padding: 0.75rem 1rem;
+    border-radius: 0 10px 10px 0;
+}
+
+.personal,
+.contact,
+.summary,
+.education,
+.experience,
+.projects,
+.skills {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.personal:hover,
+.contact:hover,
+.summary:hover,
+.education:hover,
+.experience:hover,
+.projects:hover,
+.skills:hover {
+    box-shadow: 0 8px 15px rgba(102, 126, 234, 0.1);
+    border-color: #667eea;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    background: #ffffff;
+    transition: all 0.2s ease;
+    margin-bottom: 0.5rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    background: #fafcff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+textarea {
+    grid-column: span 2;
+    resize: vertical;
+    min-height: 100px;
+    background: #fafcff;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    margin-top: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+@media (max-width: 768px) {
+    .personal,
+    .contact,
+    .summary,
+    .education,
+    .experience,
+    .projects,
+    .skills {
+        grid-template-columns: 1fr;
+    }
+    
+    textarea {
+        grid-column: span 1;
+    }
+    
+    .form {
+        padding: 1rem;
+    }
+}

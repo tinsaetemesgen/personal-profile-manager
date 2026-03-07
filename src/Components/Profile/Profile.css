@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.profile-page {
+  flex: 1;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.profile-nav {
+  margin-bottom: 2rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.profile-header {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-header h1 {
+  color: #333;
+}
+
+.profile-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.profile-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-section h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.edit-profile-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-display {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.display-card {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.display-card h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.display-card p {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 8px;
+}
+
+.display-card strong {
+  color: #667eea;
+  margin-right: 1rem;
+  min-width: 100px;
+  display: inline-block;
+}
+/* Display Section Styles */
+.profile-display {
+    padding: 1rem 0;
+}
+
+.display-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+}
+
+.display-section h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.display-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.display-item {
+    padding: 0.5rem;
+    background: white;
+    border-radius: 8px;
+}
+
+.display-item.full-width {
+    grid-column: span 2;
+}
+
+.display-item label {
+    font-weight: 600;
+    color: #667eea;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.display-item p {
+    color: #333;
+    font-size: 1rem;
+}
+
+.display-profile-pic {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.display-profile-pic img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #667eea;
+}
+
+/* Form Select Styles */
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+}
+
+select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* File Input Styles */
+input[type="file"] {
+    padding: 0.5rem 0;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .display-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .display-item.full-width {
+        grid-column: span 1;
+    }
+}
