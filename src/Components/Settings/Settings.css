@@ -1,87 +1,103 @@
 .setting-container {
-    display: flex;
-    width: 100%;
-    margin-left: 18rem;
     height: 100vh;
+    margin-left: 18rem;
     background: linear-gradient(135deg, #dfe6f7, #d6dffa);
-    flex-direction: column;
     gap: 2.4rem;
 }
 
 .settings-page {
-  max-width: 72rem;
-  margin: 4rem;
-  padding: 4rem;
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    height: 100vh;
+    margin-left: 12rem;
+    max-width: 58rem;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
-
 .link {
-  margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: #444;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #000;
 }
 
 .settings-page h1 {
-  font-size: 2rem;
-  margin-bottom: .75rem;
-  color: #111827;
+    margin-bottom: 0.5rem;
 }
 
 .settings-page p {
-  font-size: 15px;
-  color: #6b7280;
-  margin-bottom: 2rem;
+    color: #666;
+    margin-bottom: 2rem;
 }
 
-.theme-option {
-  display: flex;
-  gap: 20px;
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.theme-option h2 {
-  font-size: 1.4rem;
-  margin-bottom: 2rem;
-  color: #111827;
+.theme-toggle input {
+    display: none;
 }
 
-.theme-option input[type="radio"] {
-  display: none;
-  width: 12rem;
+.slider {
+    width: 48px;
+    height: 24px;
+    background: #ccc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.theme-option label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  justify-content: center;
-  padding: 1rem 2rem;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  cursor: pointer;
-  font-size: 15px;
-  color: #374151;
-  background: #ffffff;
-  transition: all 0.2s ease;
+.slider::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    background: white;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 50%;
+    transition: 0.3s;
 }
 
-.theme-option label:hover {
-  border-color: #6366f1;
-  color: #111827;
+.theme-toggle input:checked + .slider {
+    background: #333;
 }
 
-.theme-option input[type="radio"]:checked + label {
-  background: #6366f1;
-  color: white;
-  border-color: #6366f1;
+.theme-toggle input:checked + .slider::before {
+    transform: translateX(24px);
 }
+
+.language h2 {
+    margin-bottom: 0.6rem;
+    font-size: 1.1rem;
+}
+
+.language select {
+    width: 100%;
+    max-width: 250px;
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.language select:focus {
+    border-color: #333;
+}
+
