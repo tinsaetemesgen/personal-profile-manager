@@ -1,9 +1,87 @@
-.settings-page {
+.setting-container {
     display: flex;
     width: 100%;
-    margin-left:18rem;
+    margin-left: 18rem;
     height: 100vh;
     background: linear-gradient(135deg, #dfe6f7, #d6dffa);
     flex-direction: column;
     gap: 2.4rem;
+}
+
+.settings-page {
+  max-width: 72rem;
+  margin: 4rem;
+  padding: 4rem;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+
+.link {
+  margin-bottom: 2rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.settings-page h1 {
+  font-size: 2rem;
+  margin-bottom: .75rem;
+  color: #111827;
+}
+
+.settings-page p {
+  font-size: 15px;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+.theme-option {
+  display: flex;
+  gap: 20px;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.theme-option h2 {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  color: #111827;
+}
+
+.theme-option input[type="radio"] {
+  display: none;
+  width: 12rem;
+}
+
+.theme-option label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  font-size: 15px;
+  color: #374151;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.theme-option label:hover {
+  border-color: #6366f1;
+  color: #111827;
+}
+
+.theme-option input[type="radio"]:checked + label {
+  background: #6366f1;
+  color: white;
+  border-color: #6366f1;
 }
