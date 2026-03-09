@@ -27,13 +27,6 @@ function Sidebar() {
         </li>
 
         <li>
-          <NavLink to="/Experiance">
-            <FiTool className="icon" />
-            Experiance
-          </NavLink>
-        </li>
-
-        <li>
           <NavLink to="/Settings">
             <FiSettings className="icon" />
             Settings

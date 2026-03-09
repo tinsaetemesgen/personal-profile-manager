@@ -1,10 +1,58 @@
+/* eslint-disable no-undef */
 import './Form.css'
 import { Link } from 'react-router-dom';
 import { Routes, Route } from "react-router-dom";
 import { FiHome, FiUser, FiTool, FiFolder, FiSettings, FiLogOut, FiArrowLeftCircle, FiArrowDownLeft, FiArrowLeft } from "react-icons/fi";
-
+import { useEffect } from 'react';
 
 export default function Form() {
+
+
+
+useEffect(() => {
+  const toggle = document.getElementById("theme");
+
+  const handleTheme = () => {
+    document.body.classList.toggle("dark", toggle.checked);
+    localStorage.setItem("theme", toggle.checked ? "dark" : "light");
+  };
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    if (toggle) toggle.checked = true;
+  }
+
+  if (toggle) toggle.addEventListener("change", handleTheme);
+
+  return () => {
+    if (toggle) toggle.removeEventListener("change", handleTheme);
+  };
+}, []);
+
+const handleSubmit=(e)=>{
+e.preventDefault()
+
+const profiles = JSON.parse(localStorage.getItem("profiles")) || []
+
+profiles.push(formData)
+
+localStorage.setItem("profiles",JSON.stringify(profiles))
+
+localStorage.setItem("experienceData",JSON.stringify({
+    jobTitle:formData.jobTitle,
+    company:formData.company,
+    employmentType:formData.employmentType,
+    startDate:formData.startDate,
+    endDate:formData.endDate,
+    responsibilities:formData.responsibilities,
+    technologies:formData.technologies
+}));
+
+alert("Profile Saved")
+}
+
+
     return (
         <div className="form-container">
 
@@ -21,7 +69,7 @@ export default function Form() {
             <section className="form-section">
                     <h1>Fill out the following form</h1>
                 
-                <form className="form">
+                <form className="form" onSubmit={handleSubmit}>
 
                     <div className="personal">
                     <h2>Personal Information</h2>

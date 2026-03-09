@@ -6,3 +6,47 @@
     flex-direction: column;
     gap: 40px;
 }
+
+.experience-container{
+margin-left:18rem;
+min-height:100vh;
+background:linear-gradient(135deg,#dfe6f7,#d6dffa);
+padding:2rem;
+display:flex;
+flex-direction:column;
+gap:2rem;
+}
+
+.experience-page h1{
+margin-bottom:1.5rem;
+color:#222;
+}
+
+.experience-card{
+display:flex;
+flex-direction:column;
+gap:.8rem;
+}
+
+.experience-card h2{
+color:#333;
+}
+
+.experience-card h3{
+margin-top:1rem;
+}
+
+.dark .experience-container{
+background:linear-gradient(135deg,#0f172a,#020617);
+}
+
+.dark .experience-page{
+background:#1e293b;
+color:#e2e8f0;
+box-shadow:0 4px 20px rgba(0,0,0,.6);
+}
+
+.dark .experience-page h1,
+.dark .experience-card h2{
+color:#f1f5f9;
+}

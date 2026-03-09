@@ -1,9 +1,30 @@
 import { FiMoon, FiSun, FiArrowLeft } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 import './Settings.css';
+import { useEffect } from "react";
 
 
 function Settings() {
+  useEffect(() => {
+  const toggle = document.getElementById("theme");
+
+  const handleTheme = () => {
+    document.body.classList.toggle("dark", toggle.checked);
+    localStorage.setItem("theme", toggle.checked ? "dark" : "light");
+  };
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    if (toggle) toggle.checked = true;
+  }
+
+  if (toggle) toggle.addEventListener("change", handleTheme);
+
+  return () => {
+    if (toggle) toggle.removeEventListener("change", handleTheme);
+  };
+}, []);
   return (
 
     <div className="setting-container">
@@ -20,13 +41,13 @@ function Settings() {
             <h2>Theme Preference</h2>
 
             <label className="theme-toggle">
-              <FiSun className="sun" />
+              <FiSun className="icon" />
 
               <input type="checkbox" id="theme" />
 
               <span className="slider"></span>
 
-              <FiMoon className="moon" />
+              <FiMoon className="icon" />
             </label>
 
           </div>
@@ -42,17 +63,22 @@ function Settings() {
         </div>
 
 
-
+          <h2 className="font-size">Font Size</h2>
         <div className="font">
-          <h2>Font Size</h2>
+          
 
-          <input type="radio" />
-          <label htmlFor="small">Small</label>
-          <input type="radio" />
-          <label htmlFor="medium">Medium</label>
-          <input type="radio" />
-          <label htmlFor="large">Large</label>
-
+          <div className="">
+            <input type="radio" />
+            <label htmlFor="small" className="fonts">Small</label>
+          </div>
+          <div className="">
+            <input type="radio" />
+            <label htmlFor="medium" className="fonts">Medium</label>
+          </div>
+          <div className="">
+            <input type="radio" />
+            <label htmlFor="large" className="fonts">Large</label>
+          </div>
         </div>
 
     </div>

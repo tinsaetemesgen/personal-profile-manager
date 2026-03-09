@@ -103,3 +103,66 @@ input[type="file"] {
 .submit-btn:hover{
     background:#1e4fd6;
 }
+
+
+
+
+
+
+.dark .form-container{
+    background: linear-gradient(135deg, #0f172a, #020617);
+}
+
+.dark .form-container h1{
+    color:#f1f5f9;
+}
+
+.dark .back-link{
+    color:#60a5fa;
+}
+
+.dark .back-link:hover{
+    color:#93c5fd;
+}
+
+.dark .form>div{
+    background:#1e293b;
+    box-shadow:0 4px 14px rgba(0,0,0,0.4);
+}
+
+.dark .form h2{
+    color:#e2e8f0;
+}
+
+.dark label{
+    color:#cbd5f5;
+}
+
+.dark input,
+.dark select,
+.dark textarea{
+    background:#0f172a;
+    border:1px solid #334155;
+    color:#e2e8f0;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder{
+    color:#94a3b8;
+}
+
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus{
+    border-color:#6366f1;
+    box-shadow:0 0 0 2px rgba(99,102,241,.25);
+}
+
+.dark .submit-btn{
+    background:#4338ca;
+    color:#f8fafc;
+}
+
+.dark .submit-btn:hover{
+    background:#6366f1;
+}

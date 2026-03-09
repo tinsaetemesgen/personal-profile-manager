@@ -67,3 +67,31 @@
     margin-top: .75rem;
     color: #6b7280;
 }
+
+
+
+
+
+
+
+
+.dark .dashboard-page {
+    background: linear-gradient(135deg, #0f172a, #020617);
+}
+
+.dark .dashboard-header h1 {
+    color: #f9fafb;
+}
+
+.dark .dashboard-card {
+    background: #0f172a;
+    box-shadow: 0 12px 16px rgba(0,0,0,0.5);
+}
+
+.dark .dashboard-card h3 {
+    color: #f9fafb;
+}
+
+.dark .dashboard-card p {
+    color: #9ca3af;
+}
