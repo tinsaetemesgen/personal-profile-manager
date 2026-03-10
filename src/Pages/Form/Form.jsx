@@ -30,27 +30,33 @@ useEffect(() => {
   };
 }, []);
 
-const handleSubmit=(e)=>{
-e.preventDefault()
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-const profiles = JSON.parse(localStorage.getItem("profiles")) || []
+  const form = e.target;
+  const formData = Object.fromEntries(new FormData(form));
 
-profiles.push(formData)
+  const profiles = JSON.parse(localStorage.getItem("profiles")) || [];
 
-localStorage.setItem("profiles",JSON.stringify(profiles))
+  profiles.push(formData);
 
-localStorage.setItem("experienceData",JSON.stringify({
-    jobTitle:formData.jobTitle,
-    company:formData.company,
-    employmentType:formData.employmentType,
-    startDate:formData.startDate,
-    endDate:formData.endDate,
-    responsibilities:formData.responsibilities,
-    technologies:formData.technologies
-}));
+  localStorage.setItem("profiles", JSON.stringify(profiles));
 
-alert("Profile Saved")
-}
+  localStorage.setItem(
+    "experienceData",
+    JSON.stringify({
+      jobTitle: formData.jobTitle,
+      company: formData.company,
+      employmentType: formData.employmentType,
+      startDate: formData.startDate,
+      endDate: formData.endDate,
+      responsibilities: formData.responsibilities,
+      technologies: formData.technologies,
+    })
+  );
+
+  alert("Profile Saved");
+};
 
 
     return (

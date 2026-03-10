@@ -1,14 +1,28 @@
 import "./Sidebar.css";
-import { NavLink } from "react-router-dom";
-import { FiHome, FiUser, FiTool, FiFolder, FiSettings, FiLogOut } from "react-icons/fi";
-import { Link } from "react-router-dom"
+import { NavLink, Link, useNavigate } from "react-router-dom";
+import { FiHome, FiUser, FiSettings, FiLogOut } from "react-icons/fi";
 
 function Sidebar() {
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // remove saved profile data
+    localStorage.removeItem("profiles");
+    localStorage.removeItem("experienceData");
+
+    alert("Profile deleted");
+
+    // redirect to dashboard
+    navigate("/");
+  };
+
   return (
     <div className="sidebar">
       <div className="title">
-        <Link to='/' ><h1>Profile Manager</h1></Link>
+        <Link to="/"><h1>Profile Manager</h1></Link>
       </div>
+
       <hr />
 
       <ul>
@@ -23,7 +37,7 @@ function Sidebar() {
           <NavLink to="/Profile">
             <FiUser className="icon" />
             Profile
-          </NavLink> 
+          </NavLink>
         </li>
 
         <li>
@@ -34,9 +48,11 @@ function Sidebar() {
         </li>
       </ul>
 
-      <button className="logout-btn">
+      <button className="logout-btn" onClick={handleLogout}>
         <FiLogOut className="icon" />
-        Logout</button>
+        Logout
+      </button>
+
     </div>
   );
 }
