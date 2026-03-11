@@ -9,7 +9,6 @@ function Sidebar() {
   const handleLogout = () => {
     // remove saved profile data
     localStorage.removeItem("profiles");
-    localStorage.removeItem("experienceData");
 
     alert("Profile deleted");
 

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import './Form.css'
 import { Link } from 'react-router-dom';
 import { Routes, Route } from "react-router-dom";
