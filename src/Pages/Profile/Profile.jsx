@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import './Profile.css'
 import { Link } from 'react-router-dom'
 import { FiArrowLeft } from "react-icons/fi"
@@ -5,26 +6,16 @@ import { useEffect, useState } from "react"
 
 export default function Profile(){
 
-const [profile,setProfile] = useState(null)
-const [experience,setExperience] = useState(null)
+const [profiles,setProfiles] = useState([])
 
 useEffect(()=>{
 
-const profiles = JSON.parse(localStorage.getItem("profiles")) || []
-const expData = JSON.parse(localStorage.getItem("experienceData"))
-
-if(profiles.length > 0){
-// eslint-disable-next-line react-hooks/set-state-in-effect
-setProfile(profiles[profiles.length-1])
-}
-
-if(expData){
-setExperience(expData)
-}
+const stored = JSON.parse(localStorage.getItem("profiles")) || []
+setProfiles(stored)
 
 },[])
 
-if(!profile){
+if(profiles.length === 0){
 return(
 <div className="profile-container">
 <h2>No Profile Created Yet</h2>
@@ -42,18 +33,11 @@ return(
 </Link>
 </div>
 
-<div className="profile-page">
+{profiles.map(profile => (
 
-{/* Profile Header */}
+<div className="profile-page" key={profile.id}>
+
 <div className="profile-header">
-
-{profile.profileImage && (
-<img
-src={profile.profileImage}
-alt="Profile"
-className="profile-image"
-/>
-)}
 
 <div className="profile-info">
 <h1>{profile.firstName} {profile.lastName}</h1>
@@ -64,7 +48,6 @@ className="profile-image"
 
 <p className="bio">{profile.bio}</p>
 
-{/* Contact */}
 <div className="profile-section">
 
 <h2>Contact Information</h2>
@@ -77,7 +60,6 @@ className="profile-image"
 
 </div>
 
-{/* Skills */}
 <div className="profile-section">
 
 <h2>Skills</h2>
@@ -87,27 +69,13 @@ className="profile-image"
 
 </div>
 
-{/* Experience */}
-{experience && (
-<div className="profile-section">
-
-<h2>Work Experience</h2>
-
-<p><strong>Job Title:</strong> {experience.jobTitle}</p>
-<p><strong>Company:</strong> {experience.company}</p>
-<p><strong>Employment Type:</strong> {experience.employmentType}</p>
-<p><strong>Start Date:</strong> {experience.startDate}</p>
-<p><strong>End Date:</strong> {experience.endDate}</p>
-
-<p><strong>Responsibilities:</strong></p>
-<p>{experience.responsibilities}</p>
-
-<p><strong>Technologies Used:</strong> {experience.technologies}</p>
+<Link to={`/form?id=${profile.id}`} className="edit-btn">
+Edit Profile
+</Link>
 
 </div>
-)}
 
-</div>
+))}
 
 </div>
 )

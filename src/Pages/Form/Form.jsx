@@ -30,32 +30,39 @@ useEffect(() => {
 }, []);
 
 const handleSubmit = (e) => {
-  e.preventDefault();
+e.preventDefault()
 
-  const form = e.target;
-  const formData = Object.fromEntries(new FormData(form));
+const form = e.target
+const formData = Object.fromEntries(new FormData(form))
 
-  const profiles = JSON.parse(localStorage.getItem("profiles")) || [];
+let profiles = JSON.parse(localStorage.getItem("profiles")) || []
 
-  profiles.push(formData);
+if(formData.id){
+profiles = profiles.map((p) =>
+p.id === formData.id ? formData : p
+)
+}else{
+formData.id = Date.now().toString()
+profiles.push(formData)
+}
 
-  localStorage.setItem("profiles", JSON.stringify(profiles));
+localStorage.setItem("profiles", JSON.stringify(profiles))
 
-  localStorage.setItem(
-    "experienceData",
-    JSON.stringify({
-      jobTitle: formData.jobTitle,
-      company: formData.company,
-      employmentType: formData.employmentType,
-      startDate: formData.startDate,
-      endDate: formData.endDate,
-      responsibilities: formData.responsibilities,
-      technologies: formData.technologies,
-    })
-  );
+localStorage.setItem(
+"experienceData",
+JSON.stringify({
+jobTitle: formData.jobTitle,
+company: formData.company,
+employmentType: formData.employmentType,
+startDate: formData.startDate,
+endDate: formData.endDate,
+responsibilities: formData.responsibilities,
+technologies: formData.technologies
+})
+)
 
-  alert("Profile Saved");
-};
+alert("Profile Saved")
+}
 
 
     return (
