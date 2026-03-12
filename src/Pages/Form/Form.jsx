@@ -2,6 +2,7 @@ import './Form.css'
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from "react-icons/fi";
 import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 
 export default function Form() {
 
@@ -200,10 +201,12 @@ export default function Form() {
                     <input type="text" id="softSkills" name="softSkills" placeholder="Communication, Leadership..." />
                     </div>
 
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-btn" Navigate to="/profile">
+            
             Save Profile
           </button>
         </form>
+        
       </section>
     </div>
   )

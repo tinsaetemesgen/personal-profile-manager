@@ -33,13 +33,8 @@ return () => {
 if(toggle) toggle.removeEventListener("change", handleTheme)
 }
 
-},[])
+},[]);
 
-    return () => {
-      if (toggle) toggle.removeEventListener("change", handleTheme);
-    };
-  }, []);
-  
   return (
     <div className="dashboard-page">
       <div className="dashboard-header">
@@ -51,7 +46,7 @@ if(toggle) toggle.removeEventListener("change", handleTheme)
           <Link to="/profile" className="card-link">
             <FiUser className="card-icon" />
             <h3>Total Profiles</h3>
-            <p><span id='counter'>0</span> Profiles Created</p>
+            <p>{count} {count === 1 ? "Profile" : "Profiles"}</p>
           </Link>
         </div>
 

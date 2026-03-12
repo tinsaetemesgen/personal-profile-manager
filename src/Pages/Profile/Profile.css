@@ -130,6 +130,26 @@ color:#cbd5f5;
 .dark .bio{
 color:#cbd5f5;
 }
+.profile-avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #555;
+}
+
+.placeholder-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 900px){
