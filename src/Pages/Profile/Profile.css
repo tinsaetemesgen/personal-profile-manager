@@ -130,3 +130,84 @@ color:#cbd5f5;
 .dark .bio{
 color:#cbd5f5;
 }
+/* RESPONSIVE */
+
+@media (max-width: 900px){
+
+.profile-container{
+margin-left:0;
+padding:1.2rem;
+}
+
+.profile-page{
+padding:1.5rem;
+}
+
+.profile-header{
+flex-direction:column;
+align-items:center;
+text-align:center;
+}
+
+.profile-image{
+width:100px;
+height:100px;
+}
+
+.profile-info h1{
+font-size:24px;
+}
+
+.profile-info h3{
+font-size:16px;
+}
+
+}
+
+/* VERY SMALL DEVICES */
+
+@media (max-width:500px){
+
+.profile-container{
+padding:1rem;
+}
+
+.profile-page{
+padding:1rem;
+}
+
+.profile-info h1{
+font-size:20px;
+}
+
+.profile-section p{
+font-size:14px;
+}
+
+}
+@media (min-width:769px){
+
+.profile-container{
+  margin-left:18rem;
+  width:calc(100% - 18rem);
+}
+
+}
+
+@media (max-width:768px){
+
+.profile-container{
+  margin-left:0;
+  width:100%;
+}
+
+}
+@media (min-width:769px){
+
+.profile-container{
+  margin-left:18rem;
+  width:calc(100vw - 18rem);
+}
+
+}
+

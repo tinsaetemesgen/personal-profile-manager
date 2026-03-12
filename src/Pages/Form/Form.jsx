@@ -1,116 +1,108 @@
 import './Form.css'
 import { Link } from 'react-router-dom';
-import { Routes, Route } from "react-router-dom";
-import { FiHome, FiUser, FiTool, FiFolder, FiSettings, FiLogOut, FiArrowLeftCircle, FiArrowDownLeft, FiArrowLeft } from "react-icons/fi";
+import { FiArrowLeft } from "react-icons/fi";
 import { useEffect } from 'react';
 
 export default function Form() {
 
+  useEffect(() => {
+    const toggle = document.getElementById("theme");
 
+    const handleTheme = () => {
+      document.body.classList.toggle("dark", toggle.checked);
+      localStorage.setItem("theme", toggle.checked ? "dark" : "light");
+    };
 
-useEffect(() => {
-  const toggle = document.getElementById("theme");
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark");
+      if (toggle) toggle.checked = true;
+    }
 
-  const handleTheme = () => {
-    document.body.classList.toggle("dark", toggle.checked);
-    localStorage.setItem("theme", toggle.checked ? "dark" : "light");
+    if (toggle) toggle.addEventListener("change", handleTheme);
+
+    return () => {
+      if (toggle) toggle.removeEventListener("change", handleTheme);
+    };
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = Object.fromEntries(new FormData(form));
+
+    const file = form.profileImage.files[0];
+    if (file) {
+      formData.profileImage = await toBase64(file);
+    }
+
+    const profiles = JSON.parse(localStorage.getItem("profiles")) || [];
+    profiles.push(formData);
+    localStorage.setItem("profiles", JSON.stringify(profiles));
+
+    // Optional: save experience data separately
+    localStorage.setItem(
+      "experienceData",
+      JSON.stringify({
+        jobTitle: formData.jobTitle,
+        company: formData.company,
+        employmentType: formData.employmentType,
+        startDate: formData.startDate,
+        endDate: formData.endDate,
+        responsibilities: formData.responsibilities,
+        technologies: formData.technologies,
+      })
+    );
+
+    alert("Profile Saved");
   };
 
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark");
-    if (toggle) toggle.checked = true;
-  }
+  // Helper function to convert file to base64
+  const toBase64 = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
 
-  if (toggle) toggle.addEventListener("change", handleTheme);
+  return (
+    <div className="form-container">
 
-  return () => {
-    if (toggle) toggle.removeEventListener("change", handleTheme);
-  };
-}, []);
+      <div className="link">
+        <Link to="/" className="back-link">
+          <FiArrowLeft /> Back to Dashboard
+        </Link>
+      </div>
 
-const handleSubmit = (e) => {
-e.preventDefault()
+      <section className="form-section">
+        <h1>Fill out the following form</h1>
+        <form className="form" onSubmit={handleSubmit}>
+          {/* Personal Info */}
+          <div className="personal">
+            <h2>Personal Information</h2>
+            <label htmlFor="profileImage">Profile Picture:</label>
+            <input type="file" id="profileImage" name="profileImage" accept="image/png, image/jpeg, image/jpg" />
 
-const form = e.target
-const formData = Object.fromEntries(new FormData(form))
+            <label htmlFor="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required />
 
-let profiles = JSON.parse(localStorage.getItem("profiles")) || []
+            <label htmlFor="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required />
 
-if(formData.id){
-profiles = profiles.map((p) =>
-p.id === formData.id ? formData : p
-)
-}else{
-formData.id = Date.now().toString()
-profiles.push(formData)
-}
+            <label htmlFor="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" />
 
-localStorage.setItem("profiles", JSON.stringify(profiles))
+            <label htmlFor="gender">Gender:</label>
+            <select id="gender" name="gender">
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Prefer not to say</option>
+            </select>
 
-localStorage.setItem(
-"experienceData",
-JSON.stringify({
-jobTitle: formData.jobTitle,
-company: formData.company,
-employmentType: formData.employmentType,
-startDate: formData.startDate,
-endDate: formData.endDate,
-responsibilities: formData.responsibilities,
-technologies: formData.technologies
-})
-)
-
-alert("Profile Saved")
-}
-
-
-    return (
-        <div className="form-container">
-
-            <div className="link">
-            <Link to="/" className="back-link">
-                <FiArrowLeft /> Back to Dashboard
-            </Link>
-            </div>
-
-            
-
-            
-
-            <section className="form-section">
-                    <h1>Fill out the following form</h1>
-                
-                <form className="form" onSubmit={handleSubmit}>
-
-                    <div className="personal">
-                    <h2>Personal Information</h2>
-
-                    <label htmlFor="profileImage">Profile Picture (PNG, JPEG, JPG):</label>
-                    <input type="file" id="profileImage" name="profileImage" accept="image/png, image/jpeg, image/jpg"/>
-
-                    <label htmlFor="firstName">First Name:</label>
-                    <input type="text" id="firstName" name="firstName" required />
-
-                    <label htmlFor="lastName">Last Name:</label>
-                    <input type="text" id="lastName" name="lastName" required />
-
-                    <label htmlFor="dob">Date of Birth:</label>
-                    <input type="date" id="dob" name="dob" />
-
-                    <label htmlFor="gender">Gender:</label>
-                    <select id="gender" name="gender">
-                        <option value="">Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Prefer not to say</option>
-                    </select>
-
-                    <label htmlFor="bio">Short Bio:</label>
-                    <textarea id="bio" name="bio" rows="4" placeholder="Write a short professional bio..." />
-                    </div>
-
-
+            <label htmlFor="bio">Short Bio:</label>
+            <textarea id="bio" name="bio" rows="4" placeholder="Write a short professional bio..." />
+          </div>
                     <div className="contact">
                     <h2>Contact Information</h2>
 
@@ -155,16 +147,16 @@ alert("Profile Saved")
                     <input type="text" id="institution" name="institution" />
 
                     <label htmlFor="degree">Degree:</label>
-                    <input type="text" id="degree" name="degree" />
+                    <input type="text" id="degree" name="degree"  placeholder="e.g: Msc,Phd"/>
 
                     <label htmlFor="field">Field of Study:</label>
                     <input type="text" id="field" name="field" />
 
                     <label htmlFor="startYear">Start Year:</label>
-                    <input type="number" id="startYear" name="startYear" />
+                    <input type="date" id="startYear" name="startYear" />
 
                     <label htmlFor="endYear">End Year:</label>
-                    <input type="number" id="endYear" name="endYear" />
+                    <input type="date" id="endYear" name="endYear" />
                     </div>
 
 
@@ -198,32 +190,6 @@ alert("Profile Saved")
                     <label htmlFor="technologies">Technologies Used:</label>
                     <input type="text" id="technologies" name="technologies" placeholder="React, Node.js, MySQL..." />
                     </div>
-                    
-                    <div className="projects">
-                    <h2>Projects</h2>
-
-                    <label htmlFor="projectName">Project Name:</label>
-                    <input type="text" id="projectName" name="projectName" />
-                    <label htmlFor="screenshot">Screenshot</label>
-                    <input type="file" id="screenshot" name="screenshot" accept="image/*" />
-
-                    <label htmlFor="projectName">Project Name:</label>
-                    <input type="text" id="projectName" name="projectName" />
-                    <label htmlFor="screenshot">Screenshot</label>
-                    <input type="file" id="screenshot" name="screenshot" accept="image/*" />
-                    
-                    <label htmlFor="projectName">Project Name:</label>
-                    <input type="text" id="projectName" name="projectName" />
-                    <label htmlFor="screenshot">Screenshot</label>
-                    <input type="file" id="screenshot" name="screenshot" accept="image/*" />
-
-                    <label htmlFor="projectDescription">Project Description:</label>
-                    <textarea id="projectDescription" name="projectDescription" rows="4" />
-
-                    <label htmlFor="projectLink">Project Link (GitHub, Live Demo):</label>
-                    <input type="url" id="projectLink" name="projectLink" />
-                    </div>
-
                     <div className="skills">
                     <h2>Skills</h2>
 
@@ -234,14 +200,11 @@ alert("Profile Saved")
                     <input type="text" id="softSkills" name="softSkills" placeholder="Communication, Leadership..." />
                     </div>
 
-
-                    <button type="submit" className="submit-btn">
-                    Save Profile
-                    </button>
-
-                </form>
-            </section>
-            
-        </div>
-    )
+          <button type="submit" className="submit-btn">
+            Save Profile
+          </button>
+        </form>
+      </section>
+    </div>
+  )
 }
